@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:include="layout/_basic-client :: page">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="content">
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+                <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+                <li class="active">Dịch vụ</li>
+            </ol>
+        </div>
+    </div>
+    <div class="products">
+        <div class="container">
+            <div class="col-md-4 products-left">
+                <div class="categories animated wow slideInUp" data-wow-delay=".5s">
+                    <h3>Categories</h3>
+                    <ul class="cate">
+                        <li><a href="/dich-vu/"></a>Cắt len - Bo đầu</li>
+                        <li><a href="/dich-vu/"></a>Cắt bo mài bóng</li>
+                        <li><a href="/dich-vu/"></a>Xử lý cạnh</li>
+                        <li><a href="/dich-vu/"></a>Kẻ chỉ nghệ thuật</li>
+                        <li><a href="/san-pham?type=op-tuong">Gạch Men Ốp Tường</a> <span>(15)</span></li>
+                        <li><a href="/san-pham?type=bong-kieng">Gạch Bóng Kiếng</a> <span>(16)</span></li>
+                        <li><a href="/san-pham?type=ceramic">Gạch Caramic</a> <span>(15)</span></li>
+                        <li><a href="/san-pham?type=da-tu-nhien">Đá Tự Nhiên</a> <span>(15)</span></li>
+                    </ul>
+                </div>
+                <div class="new-products animated wow slideInUp" data-wow-delay=".5s">
+                    <h3>Sản phẩm mới</h3>
+                    <div class="new-products-grids">
+                        <div class="new-products-grid" data-th-each="newestProduct : ${newProducts}">
+                            <div class="new-products-grid-left">
+                                <a href="single.html" data-th-attr="href=@{'/san-pham/' + ${newestProduct.link}}"><img data-th-attr="src=@{${newestProduct.images[0]}}" src="images/6.jpg" alt=" " class="img-responsive" /></a>
+                            </div>
+                            <div class="new-products-grid-right">
+                                <h4><a href="single.html" data-th-attr="href=@{'/san-pham/' + ${newestProduct.link}}" data-th-text="${newestProduct.name}">occaecat cupidatat</a></h4>
+                                <div class="rating">
+                                    <div class="rating-left">
+                                        <img src="images/2.png" alt=" " class="img-responsive">
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="images/2.png" alt=" " class="img-responsive">
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="images/2.png" alt=" " class="img-responsive">
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="images/1.png" alt=" " class="img-responsive">
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="images/1.png" alt=" " class="img-responsive">
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="men-position animated wow slideInUp" data-wow-delay=".5s">
+                    <a href="#"><img src="/images/27.jpg" alt=" " class="img-responsive" /></a>
+                    <div class="men-position-pos">
+                        <!--<h4>Chúc mừng</h4>-->
+                        <!--<h5><span>năm mới</span></h5>-->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 products-right">
+                <h3 class="animated wow zoomIn" data-wow-delay=".5s">Cắt Len - Bo Đầu</h3>
+                <!--<p class="est animated wow zoomIn" data-wow-delay=".5s">Chúng tôi xin được gởi đến quý khách hàng bảng báo giá của công ty chúng tôi trong năm 2017</p>-->
+
+                <div class="grid_3 grid_4 animated wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="500ms">
+                </div>
+
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

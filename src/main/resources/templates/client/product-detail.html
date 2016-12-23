@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      th:include="layout/_basic-client :: page">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="content">
+    <div class="breadcrumbs">
+        <div class="container">
+            <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
+                <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+                <li class="active">Chi tiết</li>
+            </ol>
+        </div>
+    </div>
+    <!-- //breadcrumbs -->
+    <!-- single -->
+    <div class="single">
+        <div class="container">
+            <div class="col-md-4 products-left">
+                <div class="categories animated wow slideInUp" data-wow-delay=".5s">
+                    <h3>Categories</h3>
+                    <ul class="cate">
+                        <li><a href="/san-pham?type=op-tuong">Gạch Men Ốp Tường</a> <span>(15)</span></li>
+                        <li><a href="/san-pham?type=bong-kieng">Gạch Bóng Kiếng</a> <span>(16)</span></li>
+                        <li><a href="/san-pham?type=ceramic">Gạch Caramic</a> <span>(15)</span></li>
+                        <li><a href="/san-pham?type=da-tu-nhien">Đá Tự Nhiên</a> <span>(15)</span></li>
+                    </ul>
+                </div>
+                <div class="men-position animated wow slideInUp" data-wow-delay=".5s">
+                    <a href="single.html"><img src="/images/27.jpg" alt=" " class="img-responsive" /></a>
+                    <div class="men-position-pos">
+                        <!--<h4>Chúc mừng</h4>-->
+                        <!--<h5><span>năm mới</span></h5>-->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 single-right">
+                <div class="col-md-5 single-right-left animated wow slideInUp" data-wow-delay=".5s">
+                    <div class="flexslider">
+                        <ul class="slides">
+                            <li data-thumb="/images/si.jpg" data-th-attr="data-thumb=@{${product.images[1]}}">
+                                <div class="thumb-image"><img src="images/si.jpg" data-th-attr="src=@{${product.images[1]}}" data-imagezoom="true"
+                                                              class="img-responsive"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- flixslider -->
+                    <script defer src="/js/jquery.flexslider.js"></script>
+                    <link rel="stylesheet" href="/css/flexslider.css" type="text/css" media="screen"/>
+                    <script>
+                        // Can also be used with $(document).ready()
+                        $(window).load(function () {
+                            $('.flexslider').flexslider({
+                                animation: "slide",
+                                controlNav: "thumbnails"
+                            });
+                        });
+                    </script>
+                    <!-- flixslider -->
+                </div>
+                <div class="col-md-7 single-right-left simpleCart_shelfItem animated wow slideInRight"
+                     data-wow-delay=".5s">
+                    <h3 data-th-text="${product.name}">Men's Solid Casual Shirt</h3>
+                    <div class="rating1">
+						<span class="starRating">
+							<input id="rating5" type="radio" name="rating" value="5">
+							<label for="rating5">5</label>
+							<input id="rating4" type="radio" name="rating" value="4">
+							<label for="rating4">4</label>
+							<input id="rating3" type="radio" name="rating" value="3" checked>
+							<label for="rating3">3</label>
+							<input id="rating2" type="radio" name="rating" value="2">
+							<label for="rating2">2</label>
+							<input id="rating1" type="radio" name="rating" value="1">
+							<label for="rating1">1</label>
+						</span>
+                    </div>
+                    <div  class="description">
+                        <h5><i>Mô tả</i></h5>
+                        <p data-th-text="${product.description}">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                    </div>
+                    <div class="social">
+                        <div class="social-left">
+                            <p>Share On :</p>
+                        </div>
+                        <div class="social-right">
+                            <ul class="social-icons">
+                                <li><a href="#" class="facebook"></a></li>
+                                <li><a href="#" class="twitter"></a></li>
+                                <li><a href="#" class="g"></a></li>
+                                <li><a href="#" class="instagram"></a></li>
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <!-- //single -->
+    <!-- single-related-products -->
+    <div class="single-related-products">
+        <div class="container">
+            <h3 class="animated wow slideInUp" data-wow-delay=".5s">Sản phẩm liên quan</h3>
+            <p class="est animated wow slideInUp" data-wow-delay=".5s">Danh sách những sản phẩm cùng thể loại</p>
+            <div class="new-collections-grids">
+                <div class="col-md-3 new-collections-grid" data-th-each="relatedProduct : ${relatedProducts}">
+                    <div class="new-collections-grid1 animated wow slideInLeft" data-wow-delay=".5s">
+                        <div class="new-collections-grid1-image">
+                            <a href="single.html" data-th-attr="href=@{'/san-pham/' + ${relatedProduct.link}}" class="product-image"><img  data-th-attr="src=@{${relatedProduct.images[0]}}" src="images/8.jpg" alt=" "
+                                                                             class="img-responsive"></a>
+                            <div class="new-collections-grid1-image-pos">
+                                <a data-th-attr="href=@{'/san-pham/' + ${relatedProduct.link}}" href="single.html">Xem Chi tiết</a>
+                            </div>
+                            <div class="new-collections-grid1-right">
+                                <div class="rating">
+                                    <div class="rating-left">
+                                        <img src="/images/2.png" alt=" " class="img-responsive">
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="/images/2.png" alt=" " class="img-responsive">
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="/images/1.png" alt=" " class="img-responsive">
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="/images/1.png" alt=" " class="img-responsive">
+                                    </div>
+                                    <div class="rating-left">
+                                        <img src="/images/1.png" alt=" " class="img-responsive">
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <h4><a data-th-attr="href=@{'/san-pham/' + ${relatedProduct.link}}" data-th-text="${relatedProduct.name}" href="single.html">Running Shoes</a></h4>
+                        <p data-th-text="${relatedProduct.description}">Vel illum qui dolorem eum fugiat.</p>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
